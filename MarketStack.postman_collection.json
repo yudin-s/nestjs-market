@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "192234f1-654b-4cb3-995f-5a42b453a683",
+		"name": "MarketStack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MarketStack Stock Loading",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:3000/stock/AAPL"
+			},
+			"response": []
+		}
+	]
+}
