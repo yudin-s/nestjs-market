@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { MarketStackRequest } from 'src/utils';
 import { MarketStackResponse } from './MarketStackResponse';
 
 export class MarketStackApi {
@@ -26,13 +27,9 @@ export class MarketStackApi {
     return result.data;
   }
 
-  async fetchTickerEOD({
-    ticker,
-    date = 'latest',
-  }: {
-    ticker: string;
-    date: string;
-  }): Promise<MarketStackResponse> {
-    return this.sendGetRequest({ ticker, date });
+  async fetchTickerEOD(
+    params: MarketStackRequest,
+  ): Promise<MarketStackResponse> {
+    return this.sendGetRequest(params);
   }
 }

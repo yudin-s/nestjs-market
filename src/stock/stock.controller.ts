@@ -1,7 +1,15 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { MarketStackApi, MarketStackResponse } from 'src/utils';
+import { StockFindOptionalDto } from './stock.dto';
 
 @Controller('stock')
 export class StockController {
-  @Get(':ticker')
-  async findOne(@Param('ticker') ticker: string): Promise<any> {}
+  @Post(':symbols')
+  async findOne(
+    @Param('symbols') symbols: string,
+    @Body() stockParams: StockFindOptionalDto,
+  ): Promise<MarketStackResponse> {
+    const api = new MarketStackApi();
+    return await api.fetchTickerEOD({ symbols, ...stockParams });
+  }
 }
